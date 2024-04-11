@@ -1,0 +1,36 @@
+input, select {
+    width: 100%;
+}
+
+.form-control {
+    padding: 1rem 2rem;
+    text-align: left;
+}
+
+.form-control label {
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.form-container input {
+    padding: 0.25rem;
+}
+
+.form-container h1 {
+    padding: 1rem;
+}
+
+#login-card {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 9px 5px #aaa9a9;
+    border-radius: 0.5rem;
+}
+
+#image-container img {
+    height: 80vh;
+    width: 60vw;
+    object-fit: cover;
+}

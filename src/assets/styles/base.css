@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 2rem 4rem;
+}
+
+.btn {
+    background-color: black;
+    border: black;
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: all ease-in 0.1s;
+}
+
+.btn:hover {
+    background-color: rgb(34, 32, 32);
+    cursor: pointer;
+}
