@@ -5,12 +5,80 @@
 
 main {
     margin: 2rem 4rem;
+    text-align: center;
+    /* margin: 2rem auto; */
+    /* max-width: 80%; */
+}
+
+h1,
+h2 {
+    margin: 2rem 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+i {
+    color: black;
+    font-size: 1rem;
+    margin: 0.1rem;
+    padding: 0.1rem;
+}
+
+i:hover {
+    color: black;
+}
+
+.navigation-icons {
+    font-size: 4rem;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+
+.dashboard ul {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+.dashboard-links {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.dashboard-links:hover i {
+    background-color: lightblue;
+    color: white;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 1rem; */
+    padding: 1rem;
+    background-color: rgb(192, 189, 189);
+}
+
+.list-title {
+    margin-top: 2rem;
+    background-color: rgb(235, 221, 221);
+    font-weight: bold;
 }
 
 .btn {
     background-color: black;
     border: black;
     color: white;
+    margin: 2rem;
     padding: 0.5rem 1rem;
     transition: all ease-in 0.1s;
 }
@@ -18,4 +86,18 @@ main {
 .btn:hover {
     background-color: rgb(34, 32, 32);
     cursor: pointer;
+}
+
+.btn-alt {
+    color: rgb(34, 33, 33);
+    font-size: 1rem;
+}
+
+.btn-alt:hover {
+    color: rgb(196, 196, 42);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
 }
