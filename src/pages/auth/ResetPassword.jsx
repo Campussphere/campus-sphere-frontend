@@ -27,7 +27,7 @@ export default function ResetPassword() {
                 return alert('Password does not match');
             }
 
-            const res = await fetch(`${process.env.API_URL}/reset-password/${resetToken}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/reset-password/${resetToken}`, {
                 method: 'POST',
                 body: JSON.stringify({ password: passwordData.password }),
                 headers: {

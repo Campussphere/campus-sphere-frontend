@@ -8,7 +8,7 @@ function Notice({ notice }) {
     useEffect(() => {
         async function getIssuerDetails() {
             try {
-                const res = await fetch(`${process.env.API_URL}/user/${notice.issuedBy}`, {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/user/${notice.issuedBy}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'x-access-token': localStorage.getItem('jwtToken')
@@ -53,7 +53,7 @@ export default function NoticeDetails() {
 
     useEffect(() => {
         async function getNotices() {
-            const res = await fetch(`${process.env.API_URL}/notice`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/notice`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')
@@ -74,7 +74,7 @@ export default function NoticeDetails() {
         <main>
             <h2>Notice details</h2>
 
-            <a href="/notice/add-notice" className="btn">Issue notice</a>
+            <a href="/notice/issue-notice" className="btn">Issue notice</a>
             <li className="list-item list-title">
                 <div> Notice Title </div>
                 <div> Issued by </div>

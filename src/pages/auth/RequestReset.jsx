@@ -15,7 +15,7 @@ export default function RequesReset() {
 
         try {
 
-            const res = await fetch(`${process.env.API_URL}/request-reset`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/request-reset`, {
                 method: 'POST',
                 body: JSON.stringify({ email: email }),
                 headers: {

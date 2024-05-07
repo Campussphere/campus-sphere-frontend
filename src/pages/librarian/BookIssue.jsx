@@ -17,7 +17,7 @@ export default function IssueBook() {
     useEffect(() => {
         async function fetchUsers() {
             try {
-                const res = await fetch(`${process.env.API_URL}/students`, {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/students`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'x-access-token': localStorage.getItem('jwtToken')
@@ -46,7 +46,7 @@ export default function IssueBook() {
 
         try {
 
-            const res = await fetch(`${process.env.API_URL}/library/issue-book/${bookId}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/library/issue-book/${bookId}`, {
                 method: 'POST',
                 body: JSON.stringify(issueData),
                 headers: {

@@ -14,6 +14,7 @@ import AddBooks from "./pages/librarian/AddBooks";
 import IssueBook from "./pages/librarian/BookIssue";
 import IssuersDetails from "./pages/librarian/IssuersDetails";
 import IssueNotice from "./pages/admin/IssueNotice";
+import NoticeDetails from "./pages/admin/noticeViews";
 
 import './App.css';
 import React, { Suspense } from "react";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/library/add-books" element={<AddBooks />} />
         <Route path="/library/issue-book/:bookId" element={<IssueBook />} />
         <Route path="/library/issued-books" element={<IssuersDetails />} />
+        <Route path="/notice" element={<NoticeDetails />} />
         <Route path="/notice/issue-notice" element={<IssueNotice />} />
       </Routes>
       {/* </Suspense> */}

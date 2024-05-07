@@ -8,7 +8,7 @@ function UserList({ user }) {
     useEffect(() => {
         if (user.desg === 'Student' || user.desg === 'Faculty') {
             async function getDept() {
-                const res = await fetch(`${process.env.API_URL}/dept/${user.deptId}`, {
+                const res = await fetch(`${process.env.REACT_APP_API_URL}/dept/${user.deptId}`, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -44,7 +44,7 @@ export default function UserView() {
 
     useEffect(() => {
         async function getUserList() {
-            const res = await fetch(`${process.env.API_URL}/users`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')

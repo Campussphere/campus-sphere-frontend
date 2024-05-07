@@ -16,7 +16,7 @@ export default function CreateDepartment() {
     async function CreateDept(e) {
         e.preventDefault();
 
-        const res = await fetch(`${process.env.API_URL}/dept/create-dept`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/dept/create-dept`, {
             method: 'POST',
             body: JSON.stringify({ deptName: deptName }),
             headers: {

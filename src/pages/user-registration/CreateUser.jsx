@@ -126,7 +126,7 @@ function Section4({ formData, handleChange }) {
 
     useEffect(() => {
         async function fetchInfo() {
-            const res = await fetch(`${process.env.API_URL}/dept/`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/dept/`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')
@@ -144,7 +144,7 @@ function Section4({ formData, handleChange }) {
 
     useEffect(() => {
         async function fetchBatch() {
-            const res = await fetch(`${process.env.API_URL}/batch/`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/batch/`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')
@@ -252,7 +252,7 @@ export default function CreateUser() {
 
     async function submitData(e) {
         e.preventDefault();
-        const res = await fetch(`${process.env.API_URL}/create-user`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/create-user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

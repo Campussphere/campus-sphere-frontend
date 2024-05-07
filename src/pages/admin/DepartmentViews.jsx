@@ -36,7 +36,7 @@ function DeptList({ dept }) {
             return;
         }
 
-        const res = await fetch(`${process.env.API_URL}/dept/delete-dept/${dept._id}`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/dept/delete-dept/${dept._id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "applcation/json",
@@ -57,7 +57,7 @@ function DeptList({ dept }) {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const res = await fetch(`${process.env.API_URL}/dept/update-dept/${dept._id}`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/dept/update-dept/${dept._id}`, {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
@@ -80,7 +80,7 @@ function DeptList({ dept }) {
 
     useEffect(() => {
         async function fetchOptions() {
-            const res = await fetch(`${process.env.API_URL}/available-hod/${dept._id}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/available-hod/${dept._id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')
@@ -132,7 +132,7 @@ export default function DepartmentView() {
 
     useEffect(() => {
         async function getDeptList() {
-            const res = await fetch(`${process.env.API_URL}/dept/`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/dept/`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')

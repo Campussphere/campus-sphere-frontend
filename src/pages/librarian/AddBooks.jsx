@@ -18,7 +18,7 @@ export default function AddBooks() {
     async function insertBook(e) {
         e.preventDefault();
 
-        const res = await fetch(`${process.env.API_URL}/library/add-books`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/library/add-books`, {
             method: 'POST',
             body: JSON.stringify(bookData),
             headers: {

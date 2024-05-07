@@ -6,6 +6,8 @@ import "../../assets/styles/forms.css";
 
 
 export default function IssueNotice() {
+    console.log(process.env.REACT_APP_API_URL);
+
     const [noticeData, setNoticeData] = useState({});
     const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ export default function IssueNotice() {
             return;
         }
 
-        const res = await fetch(`${process.env.API_URL}/notice/issue-notice`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/notice/issue-notice`, {
             method: 'POST',
             body: JSON.stringify(noticeData),
             headers: {

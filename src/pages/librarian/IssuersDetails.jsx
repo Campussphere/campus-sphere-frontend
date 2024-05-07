@@ -6,7 +6,7 @@ function IssuerList({ issuer }) {
 
     async function handleReturn() {
         try {
-            const res = await fetch(`${process.env.API_URL}/library/return-book/${issuer.bookId}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/library/return-book/${issuer.bookId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ function IssuerList({ issuer }) {
 
     async function requestReminder() {
         try {
-            const res = await fetch(`${process.env.API_URL}/library/reminder/${issuer._id}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/library/reminder/${issuer._id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export default function IssuersDetails() {
 
     useEffect(() => {
         async function getIssuersList() {
-            const res = await fetch(`${process.env.API_URL}/library/issued-books`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/library/issued-books`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')

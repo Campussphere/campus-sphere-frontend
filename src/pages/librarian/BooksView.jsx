@@ -34,7 +34,7 @@ function BookList({ book }) {
             return;
         }
 
-        const res = await fetch(`${process.env.API_URL}/library/delete-books/${book._id}`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/library/delete-books/${book._id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "applcation/json"
@@ -54,7 +54,7 @@ function BookList({ book }) {
     async function handleUpdate(e) {
         e.preventDefault();
 
-        const res = await fetch(`${process.env.API_URL}/library/update-record/${book._id}`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/library/update-record/${book._id}`, {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
@@ -104,7 +104,7 @@ export default function Library() {
 
     useEffect(() => {
         async function getBookList() {
-            const res = await fetch(`${process.env.API_URL}/library/`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/library/`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')

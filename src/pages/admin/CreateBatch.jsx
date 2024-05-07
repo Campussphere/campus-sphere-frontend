@@ -78,7 +78,7 @@ export default function CreateUser() {
 
     async function submitData(e) {
         e.preventDefault();
-        const res = await fetch(`${process.env.API_URL}/batch/create-batch`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/batch/create-batch`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
