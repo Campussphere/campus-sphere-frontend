@@ -2,6 +2,7 @@ import { useState } from "react";
 import loginImage from "../../assets/images/login_img.jpg";
 import "../../assets/styles/base.css";
 import "../../assets/styles/forms.css";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
     email: '',
@@ -9,6 +10,8 @@ const initialState = {
 };
 
 export default function Login() {
+    const navigate = useNavigate();
+
     function handleChange(e) {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -18,7 +21,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const res = await fetch('http://localhost:5000/login', {
+            const res = await fetch(`${process.env.API_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -36,6 +39,7 @@ export default function Login() {
                 if (result.token) {
                     localStorage.setItem('jwtToken', result.token);
 
+                    navigate('/dashboard');
                 }
             }
 

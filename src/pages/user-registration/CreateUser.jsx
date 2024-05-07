@@ -126,9 +126,10 @@ function Section4({ formData, handleChange }) {
 
     useEffect(() => {
         async function fetchInfo() {
-            const res = await fetch('http://localhost:5000/dept/', {
+            const res = await fetch(`${process.env.API_URL}/dept/`, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': localStorage.getItem('jwtToken')
                 }
             });
 
@@ -143,9 +144,10 @@ function Section4({ formData, handleChange }) {
 
     useEffect(() => {
         async function fetchBatch() {
-            const res = await fetch('http://localhost:5000/batch/', {
+            const res = await fetch(`${process.env.API_URL}/batch/`, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': localStorage.getItem('jwtToken')
                 }
             });
 
@@ -199,8 +201,8 @@ function Section4({ formData, handleChange }) {
                 <label htmlFor="desg">Select Designation</label>
                 <select name="desg" id="desg" value={formData.desg} onChange={handleChange} >
                     <option hidden>Select Designation</option>
-                    <option value="student">Student</option>
-                    <option value="faculty">Faculty</option>
+                    <option value="Student">Student</option>
+                    <option value="Faculty">Faculty</option>
                     <option value="Admin">Admin</option>
                 </select>
             </div>
@@ -250,10 +252,11 @@ export default function CreateUser() {
 
     async function submitData(e) {
         e.preventDefault();
-        const res = await fetch('http://localhost:5000/create-user', {
+        const res = await fetch(`${process.env.API_URL}/create-user`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-access-token': localStorage.getItem('jwtToken')
             },
             body: JSON.stringify(formData)
         });
@@ -271,7 +274,7 @@ export default function CreateUser() {
 
     return (
         <main>
-            <h1 className="">Register Account</h1>
+            <h1 className="">Register User</h1>
             <div className="form-card">
 
                 <div id="image-container">

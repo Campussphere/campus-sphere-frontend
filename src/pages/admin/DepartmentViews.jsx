@@ -15,6 +15,7 @@ function DeptList({ dept }) {
     const [options, setOptions] = useState([]);
 
     function handleEdit() {
+        console.log(initialState);
         setEditMode(true);
     }
 
@@ -27,14 +28,41 @@ function DeptList({ dept }) {
         setFormData({ ...formData, [name]: value });
     }
 
+    async function handleDelete() {
+
+        const confirmation = window.confirm(`Are you sure you want to remove ${dept.deptName} department`);
+
+        if (!confirmation) {
+            return;
+        }
+
+        const res = await fetch(`${process.env.API_URL}/dept/delete-dept/${dept._id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "applcation/json",
+                'x-access-token': localStorage.getItem('jwtToken')
+            }
+        });
+
+        if (res.ok) {
+            const result = await res.json();
+
+            if (result.deletedCount) {
+                alert("Department deleted");
+                window.location.reload();
+            }
+        }
+    }
+
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const res = await fetch('http://localhost:5000/dept/update-dept/' + dept._id, {
+        const res = await fetch(`${process.env.API_URL}/dept/update-dept/${dept._id}`, {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-access-token': localStorage.getItem('jwtToken')
             }
         });
 
@@ -43,17 +71,19 @@ function DeptList({ dept }) {
 
             if (result.modifiedCount) {
                 alert('Updated successfully');
-
-                navigate('/departments');
+                window.location.reload();
             }
+
+            setEditMode(false);
         }
     }
 
     useEffect(() => {
         async function fetchOptions() {
-            const res = await fetch('http://localhost:5000/available-hod/' + dept._id, {
+            const res = await fetch(`${process.env.API_URL}/available-hod/${dept._id}`, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': localStorage.getItem('jwtToken')
                 }
             });
 
@@ -75,20 +105,21 @@ function DeptList({ dept }) {
                     <input type="text" onChange={handleChange} name="deptName" className="form-control-alt" id="deptName" value={formData.deptName} autoFocus />
                     <select name="hodId" onChange={handleChange} className="form-control-alt" id="hodId">
                         <option hidden>{'Select HOD'}</option>
+                        {dept.hodInfo !== null && <option value={dept.hodInfo.hodId} selected>{dept.hodInfo.hodName}</option>}
                         {options.length ?
                             options.map((option) => (
                                 <option value={option._id}>{option.name.firstName + ' ' + option.name.lastName}</option>
                             ))
-                            : <option disabled>No hod</option>}
+                            : <option disabled>No other HOD available</option>}
                     </select>
                     <div className="btn" onClick={stopEdit}> <i class="fa-solid fa-xmark form-actions-alt"></i> </div>
                     <button onClick={handleEdit} className="btn"> <i class="fa-solid fa-check form-actions-alt"></i> </button>
                 </form> :
                 <div className="list-item">
                     <div> {dept.deptName} </div>
-                    <div> {dept.hodInfo ? "hod" : "No hod"} </div>
+                    <div> {dept.hodInfo ? `${dept.hodInfo.hodName}` : "No HOD assigned"} </div>
                     <div onClick={handleEdit}> <i class="fa-solid fa-pen"></i> </div>
-                    <div> <i class="fa-solid fa-trash"></i> </div>
+                    <div onClick={handleDelete}> <i class="fa-solid fa-trash"></i> </div>
                 </div>
             }
         </li>
@@ -101,14 +132,16 @@ export default function DepartmentView() {
 
     useEffect(() => {
         async function getDeptList() {
-            const res = await fetch('http://localhost:5000/dept/', {
+            const res = await fetch(`${process.env.API_URL}/dept/`, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'x-access-token': localStorage.getItem('jwtToken')
                 }
             });
 
             if (res.ok) {
                 const result = await res.json();
+                console.log(result);
                 setList(result);
             }
         }
@@ -120,7 +153,7 @@ export default function DepartmentView() {
         <main>
             <h2>Departments</h2>
 
-            <a href="" className="btn">Add new dept</a>
+            <a href="/create-dept" className="btn">Add new dept</a>
             <li className="list-item list-title">
                 <div> Department </div>
                 <div> HOD </div>

@@ -16,11 +16,12 @@ export default function CreateDepartment() {
     async function CreateDept(e) {
         e.preventDefault();
 
-        const res = await fetch('http://localhost:5000/dept/create-dept', {
+        const res = await fetch(`${process.env.API_URL}/dept/create-dept`, {
             method: 'POST',
             body: JSON.stringify({ deptName: deptName }),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-access-token': localStorage.getItem('jwtToken')
             }
         });
 
@@ -32,7 +33,7 @@ export default function CreateDepartment() {
             const result = await res.json();
 
             if (result.insertedId) {
-                navigate('/');
+                navigate('/departments');
             }
         } else {
             alert("Something went wrong");

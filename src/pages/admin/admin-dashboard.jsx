@@ -5,19 +5,19 @@ export default function AdminDashboard() {
         <main className="dashboard">
             <ul>
                 <li>
-                    <a href="#" className="btn-alt dashboard-links">
+                    <a href="/departments" className="btn-alt dashboard-links">
                         <i className="fa-solid fa-building navigation-icons"></i>
                         <span>Departments</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" className="btn-alt dashboard-links">
+                    <a href="/users" className="btn-alt dashboard-links">
                         <i className="fa-solid fa-user navigation-icons"></i>
                         <span>Add Faculty/Student</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" className="btn-alt dashboard-links">
+                    <a href="/notices" className="btn-alt dashboard-links">
                         <i className="fa-solid fa-sticky-note navigation-icons"></i>
                         <span>Notices</span>
                     </a>

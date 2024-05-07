@@ -65,5 +65,5 @@ select {
 #image-container img {
     height: 80vh;
     width: 40vw;
-    object-fit: cover;
+    object-fit: contain;
 }
