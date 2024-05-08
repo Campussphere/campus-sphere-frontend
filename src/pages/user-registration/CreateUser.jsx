@@ -14,7 +14,7 @@ function Section1({ formData, handleChange }) {
             <div className="form-control multi-input">
                 <div>
                     <label htmlFor="firstName">First Name</label>
-                    <input type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleChange} />
+                    <input type="text" name="firstName" id="firstName" value={formData.firstName} minLength={2} maxLength={8} onChange={handleChange} />
                 </div>
 
                 <div>
@@ -24,7 +24,7 @@ function Section1({ formData, handleChange }) {
 
                 <div>
                     <label htmlFor="lastName">Last Name</label>
-                    <input type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleChange} />
+                    <input type="text" name="lastName" id="lastName" value={formData.lastName} minLength={2} maxLength={8} onChange={handleChange} />
                 </div>
 
             </div>
@@ -43,7 +43,7 @@ function Section1({ formData, handleChange }) {
 
                 <div>
                     <label htmlFor="primaryNo">Primary number</label>
-                    <input type="tel" name="primaryNo" id="primaryNo" value={formData.primaryNo} onChange={handleChange} />
+                    <input type="tel" name="primaryNo" id="primaryNo" length={10} value={formData.primaryNo} onChange={handleChange} />
                 </div>
 
                 <div>
@@ -91,7 +91,7 @@ function Section2({ formData, handleChange }) {
                 <div>
 
                     <label htmlFor="pincode">Enter Pincode</label>
-                    <input type="number" name="pincode" id="pincode" placeholder="Ex 390019" value={formData.pincode} onChange={handleChange} />
+                    <input type="number" name="pincode" id="pincode" placeholder="Ex 390019" length={6} value={formData.pincode} onChange={handleChange} />
                 </div>
             </div>
         </div>
@@ -99,6 +99,28 @@ function Section2({ formData, handleChange }) {
 }
 
 function Section3({ formData, handleChange }) {
+
+    const [passwordValidity, setPasswordValidity] = useState(false);
+    function validatePassword(e) {
+        // Regular expressions for validation
+        const password = e.target.value;
+        const uppercaseRegex = /[A-Z]/;
+        const lowercaseRegex = /[a-z]/;
+        const numberRegex = /[0-9]/;
+
+        // Check if password meets all criteria
+        const isValid = (
+            password.length >= 6 &&
+            uppercaseRegex.test(password) &&
+            lowercaseRegex.test(password) &&
+            numberRegex.test(password)
+        );
+
+        setPasswordValidity(isValid);
+
+        handleChange(e);
+    }
+
     return (
         <div>
             <div className="section-title">
@@ -112,9 +134,13 @@ function Section3({ formData, handleChange }) {
 
             <div className="form-control">
                 <label htmlFor="password">Enter password</label>
-                <input type="password" name="password" id="password" value={formData.password} onChange={handleChange} />
+                <input type="password" name="password" id="password" value={formData.password} onChange={validatePassword} />
             </div>
 
+            <div className="form-cont">
+                {passwordValidity ? <span><i class="fa-solid fa-check"></i> Password is secure</span> : 
+                <span><i class="fa-solid fa-xmark"></i> Password is too weak</span> }
+            </div>
             {/* <span>The provided info will be used for Login your ERP</span> */}
         </div>
     )
@@ -203,6 +229,7 @@ function Section4({ formData, handleChange }) {
                     <option hidden>Select Designation</option>
                     <option value="Student">Student</option>
                     <option value="Faculty">Faculty</option>
+                    <option value="Librarian">Librarian</option>
                     <option value="Admin">Admin</option>
                 </select>
             </div>

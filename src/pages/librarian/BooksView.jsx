@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../assets/styles/base.css";
 import "../../assets/styles/forms.css";
+import Header from "../header/userHeader";
 
 function BookList({ book }) {
     const navigate = useNavigate();
@@ -123,6 +124,7 @@ export default function Library() {
 
     return (
         <main>
+            <Header />
             <h2>Library</h2>
 
             <a href="/library/add-books" className="btn">Add books</a>

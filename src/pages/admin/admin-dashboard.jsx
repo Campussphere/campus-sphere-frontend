@@ -1,8 +1,10 @@
+import Header from "../header/userHeader";
 import "../../assets/styles/base.css";
 
 export default function AdminDashboard() {
     return (
         <main className="dashboard">
+            <Header />
             <ul>
                 <li>
                     <a href="/departments" className="btn-alt dashboard-links">
@@ -17,15 +19,15 @@ export default function AdminDashboard() {
                     </a>
                 </li>
                 <li>
-                    <a href="/notices" className="btn-alt dashboard-links">
+                    <a href="/notice" className="btn-alt dashboard-links">
                         <i className="fa-solid fa-sticky-note navigation-icons"></i>
                         <span>Notices</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" className="btn-alt dashboard-links">
-                        <i className="fa-solid fa-calendar-alt navigation-icons"></i>
-                        <span>Leaves</span>
+                    <a href="/create-batch" className="btn-alt dashboard-links">
+                        <i class="fa-solid fa-landmark navigation-icons"></i>
+                        <span>Create Batch</span>
                     </a>
                 </li>
             </ul>

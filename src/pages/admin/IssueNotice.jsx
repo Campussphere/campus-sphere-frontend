@@ -52,7 +52,7 @@ export default function IssueNotice() {
         <main>
             <div className="form-card">
                 <div className="form-container">
-                    <h1>Add new book</h1>
+                    <h1>Issue notice</h1>
                     <form onSubmit={issueNotice}>
                         <div className="form-control">
                             <label htmlFor="noticeTitle">Notice Title</label>
@@ -61,7 +61,7 @@ export default function IssueNotice() {
 
                         <div className="form-control">
                             <label htmlFor="noticeLevel">Send Notice to</label>
-                            <select name="noticeLevel" id="noticeLevel">
+                            <select name="noticeLevel" id="noticeLevel" onChange={handleChange}>
                                 <option hidden>Select</option>
                                 <option value="1">All Student and Faculties</option>
                                 <option value="2">All Students</option>

@@ -32,18 +32,22 @@ export default function Login() {
             if (res.ok) {
                 const result = await res.json();
 
+                console.log(result);
                 if (result.hasError) {
                     return alert(result.message);
                 }
 
                 if (result.token) {
                     localStorage.setItem('jwtToken', result.token);
+                    localStorage.setItem('isAuth', true);
+                    localStorage.setItem('desg', result.desg);
 
                     navigate('/dashboard');
                 }
             }
 
         } catch (error) {
+            console.error(error);
             alert("Something went wrong!");
         }
     }
@@ -63,7 +67,7 @@ export default function Login() {
 
                         <div className="form-control">
                             <label htmlFor="password">Password</label>
-                            <input type="password" name="password" id="password" onChange={handleChange} />
+                            <input type="password" name="password" id="password" minLength={6} maxLength={16} required onChange={handleChange} />
                         </div>
 
                         <div className="form-control">

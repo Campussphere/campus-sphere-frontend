@@ -10,11 +10,15 @@ import CreateDepartment from "./pages/admin/CreateDepartment";
 import CreateBatch from "./pages/admin/CreateBatch";
 import UserView from "./pages/admin/UserManagment";
 import Library from "./pages/librarian/BooksView";
+import StudentLibrary from "./pages/student/BooksView";
+import IssueDetails from "./pages/student/IssuedBooksDetails";
 import AddBooks from "./pages/librarian/AddBooks";
 import IssueBook from "./pages/librarian/BookIssue";
 import IssuersDetails from "./pages/librarian/IssuersDetails";
 import IssueNotice from "./pages/admin/IssueNotice";
+import StudentNotice from "./pages/student/StudentNotices";
 import NoticeDetails from "./pages/admin/noticeViews";
+import NoticeDetail from "./pages/librarian/NoticeDetail";
 
 import './App.css';
 import React, { Suspense } from "react";
@@ -34,12 +38,16 @@ function App() {
         <Route path="/create-dept" element={<CreateDepartment />} />
         <Route path="/create-batch" element={<CreateBatch />} />
         <Route path="/users" element={<UserView />} />
+        <Route path="/my-library" element={<StudentLibrary />} />
+        <Route path="/my-issues" element={<IssueDetails />} />
         <Route path="/library" element={<Library />} />
         <Route path="/library/add-books" element={<AddBooks />} />
         <Route path="/library/issue-book/:bookId" element={<IssueBook />} />
         <Route path="/library/issued-books" element={<IssuersDetails />} />
         <Route path="/notice" element={<NoticeDetails />} />
+        <Route path="/student-notice" element={<StudentNotice />} />
         <Route path="/notice/issue-notice" element={<IssueNotice />} />
+        <Route path="/notice-detail/:noticeId" element={<NoticeDetail />} />
       </Routes>
       {/* </Suspense> */}
     </BrowserRouter>

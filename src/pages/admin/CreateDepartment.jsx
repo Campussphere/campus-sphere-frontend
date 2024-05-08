@@ -1,5 +1,6 @@
 import { useState } from "react";
 import loginImage from "../../assets/images/login_img.jpg";
+import Header from "../header/userHeader";
 import "../../assets/styles/base.css";
 import "../../assets/styles/forms.css";
 import { useNavigate } from "react-router-dom";
@@ -41,6 +42,7 @@ export default function CreateDepartment() {
     }
     return (
         <main>
+            <Header />
             <div className="form-card">
                 <div className="form-container">
                     <h1>Create Department</h1>

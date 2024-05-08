@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "../header/userHeader";
 import "../../assets/styles/base.css";
 import { useNavigate } from "react-router-dom";
 
@@ -151,6 +152,7 @@ export default function DepartmentView() {
 
     return (
         <main>
+            <Header />
             <h2>Departments</h2>
 
             <a href="/create-dept" className="btn">Add new dept</a>

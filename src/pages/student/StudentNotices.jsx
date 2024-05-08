@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../assets/styles/base.css";
 import { useNavigate } from "react-router-dom";
+import Header from "../header/userHeader";
 
 function Notice({ notice }) {
     const [issuerDetails, setDetails] = useState([]);
@@ -39,7 +40,6 @@ function Notice({ notice }) {
                         month: 'short',
                         day: 'numeric'
                     })} </div>
-                    <div> {notice.noticeLevel == 1 ? 'For All Students and faculty' : notice.noticeLevel == 2 ? "For Students" : "For Faculties" } </div>
                     <div><i class="fa-solid fa-eye"></i></div>
                 </div>
             }
@@ -47,13 +47,13 @@ function Notice({ notice }) {
     )
 }
 
-export default function NoticeDetails() {
+export default function StudentNotice() {
 
     const [noticeDetails, setNoticeDetails] = useState([]);
 
     useEffect(() => {
         async function getNotices() {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/notice`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/notice/student-notices`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-access-token': localStorage.getItem('jwtToken')
@@ -72,14 +72,13 @@ export default function NoticeDetails() {
 
     return (
         <main>
+            <Header />
             <h2>Notice details</h2>
 
-            <a href="/notice/issue-notice" className="btn">Issue notice</a>
             <li className="list-item list-title">
                 <div> Notice Title </div>
                 <div> Issued by </div>
                 <div> Issued on </div>
-                <div> Issued for </div>
                 <div> View </div>
             </li>
             <ul>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../../assets/styles/base.css";
+import Header from "../header/userHeader";
 
 function UserList({ user }) {
     const [dept, setDept] = useState([]);
@@ -63,6 +64,7 @@ export default function UserView() {
 
     return (
         <main>
+            <Header />
             <h2>Users</h2>
 
             <a href="/create-user" className="btn">Add new user</a>

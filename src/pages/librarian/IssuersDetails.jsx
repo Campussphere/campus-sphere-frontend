@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "../header/userHeader";
 import "../../assets/styles/base.css";
 import { useNavigate } from "react-router-dom";
 
@@ -99,6 +100,7 @@ export default function IssuersDetails() {
 
     return (
         <main>
+            <Header />
             <h2>Issuer details</h2>
 
             <li className="list-item list-title">

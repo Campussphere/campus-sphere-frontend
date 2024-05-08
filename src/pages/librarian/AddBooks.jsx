@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../assets/styles/base.css";
 import "../../assets/styles/forms.css";
+import Header from "../header/userHeader";
 
 
 export default function AddBooks() {
@@ -43,6 +44,7 @@ export default function AddBooks() {
     }
     return (
         <main>
+            <Header />
             <div className="form-card">
                 <div className="form-container">
                     <h1>Add new book</h1>

@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import batchImage from "../../assets/images/batch_img.jpg";
+import Header from "../header/userHeader";
 import "../../assets/styles/base.css"
 import "../../assets/styles/forms.css"
 
@@ -98,6 +99,7 @@ export default function CreateUser() {
 
     return (
         <main>
+            <Header />
             <h1 className="">Create Batch</h1>
             <div className="form-card">
 

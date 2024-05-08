@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../../assets/styles/base.css";
 import "../../assets/styles/forms.css";
+import Header from "../header/userHeader";
 
 export default function IssueBook() {
     const navigate = useNavigate();
@@ -73,6 +74,7 @@ export default function IssueBook() {
 
     return (
         <main id="library-form-card">
+            <Header />
             <div className="form-card">
 
                 {/* <div id="image-container">
