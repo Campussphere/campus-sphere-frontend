@@ -19,6 +19,8 @@ import IssueNotice from "./pages/admin/IssueNotice";
 import StudentNotice from "./pages/student/StudentNotices";
 import NoticeDetails from "./pages/admin/noticeViews";
 import NoticeDetail from "./pages/librarian/NoticeDetail";
+import FeesView from "./pages/student/FeesInfo";
+import PaidFeesView from "./pages/student/PaidFeesInfo";
 
 import './App.css';
 import React, { Suspense } from "react";
@@ -48,6 +50,8 @@ function App() {
         <Route path="/student-notice" element={<StudentNotice />} />
         <Route path="/notice/issue-notice" element={<IssueNotice />} />
         <Route path="/notice-detail/:noticeId" element={<NoticeDetail />} />
+        <Route path="/fees" element={<FeesView />} />
+        <Route path="/fees/paid-fees" element={<PaidFeesView />} />
       </Routes>
       {/* </Suspense> */}
     </BrowserRouter>
