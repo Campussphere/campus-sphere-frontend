@@ -12,7 +12,14 @@ export default function Student() {
                         <span>Library</span>
                     </a>
                 </li>
-            
+
+                <li>
+                    <a href="/fees" className="btn-alt dashboard-links">
+                        <i class="fa-solid fa-indian-rupee-sign navigation-icons"></i>
+                        <span>Fees</span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="/student-notice" className="btn-alt dashboard-links">
                         <i className="fa-solid fa-sticky-note navigation-icons"></i>
